@@ -23,7 +23,11 @@ namespace Exercize3_021
                 if (rollNo == current.rollNumber)
                     return (true);/*Returns true if the node is found*/
             }
-            
+            if (rollNo == LAST.rollNumber)/*if the node is present at the end*/
+                return true;
+            else
+                return (false);/*Returns false if the node is not found*/
         }
+
     }
 }
