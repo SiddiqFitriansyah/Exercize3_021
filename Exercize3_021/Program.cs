@@ -70,16 +70,44 @@ namespace Exercize3_021
         }
         public void InsertInBeginning()
         {
-            Node temp = LAST.next;
+            Node temp = new Node();
             temp.next = LAST;
             LAST.next = temp;
         }
         public void InsertInEmptyList()
         {
-            Node temp = LAST.next;
+            Node temp = new Node();
             LAST.next = temp;
             LAST = LAST.next;
         }
+        public void InsertAtTheEnd()
+        {
+            Node temp = new Node();
+            temp.next = LAST;
+            LAST = temp;
+            LAST.next = temp;
+        }
+        public void CreateList()
+        {
+            int i, n, data;
+            Console.WriteLine("Enter the Number of Node: ");
+            n = Convert.ToInt32(Console.ReadLine());
 
+            if (n == null)
+                return;
+            Console.Write("Enter the Element to be Inserted: ");
+            data = Convert.ToInt32(Console.ReadLine());
+            InsertInEmptyList();
+
+            for (i = 2; i < data; i++)
+            {
+                Console.Write("Enter the Elemenet to be Inserted: ");
+                InsertAtTheEnd();
+            }
+        }
+        public void InsertAfter()
+        {
+
+        }
     }
 }
