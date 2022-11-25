@@ -153,6 +153,24 @@ namespace Exercize3_021
 
             LAST.next = LAST.next.next;
         }
+        public void DeleteLastNode()
+        {
+            // if list is empty
+            if (LAST == null)
+                return;
+            // if list has one node
+            if (LAST.next == LAST)
+            {
+                LAST = null;
+                return;
+            }
+
+            Node p = LAST.next;
+            while (p.next != LAST)
+                p = p.next;
+            p.next = LAST.next;
+            LAST = p;
+        }
         public static void Main(string[] args)
         {
             int choice, data, x;
