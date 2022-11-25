@@ -23,6 +23,7 @@ namespace Exercize3_021
                 Console.WriteLine("List Is Empty");
                 return;
             }
+
         }
         public bool Search(int rollNo, ref Node previous, ref Node current)/*Search for the specified node*/
         {
@@ -35,6 +36,37 @@ namespace Exercize3_021
                 return true;
             else
                 return (false);/*Returns false if the node is not found*/
+        }
+        public bool ListEmpty()
+        {
+            if (LAST == null)
+                return true;
+            else
+                return false;
+        }
+        public void traverse()/*Traverses all the nodes of the list*/
+        {
+            if (ListEmpty())
+                Console.WriteLine("\nList is Empty");
+            else
+            {
+                Console.WriteLine("\nRecords in the List are:\n");
+                Node currentNode;
+                currentNode = LAST.next;
+                while (currentNode != LAST)
+                {
+                    Console.Write(currentNode.rollNumber + "  " + currentNode.name + "\n");
+                    currentNode = currentNode.next;
+                }
+                Console.WriteLine(LAST.rollNumber + "  " + LAST.name + "\n");
+            }
+        }
+        public void FirstNode()
+        {
+            if (ListEmpty())
+                Console.WriteLine("\nList is Empty");
+            else
+                Console.WriteLine("\nThe First Record in the List is:\n\n" + LAST.next.rollNumber + "  " + LAST.next.name);
         }
         
     }
