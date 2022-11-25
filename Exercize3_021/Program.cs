@@ -74,6 +74,12 @@ namespace Exercize3_021
             temp.next = LAST;
             LAST.next = temp;
         }
-       
+        public void InsertInEmptyList()
+        {
+            Node temp = LAST.next;
+            LAST.next = temp;
+            LAST = LAST.next;
+        }
+
     }
 }
