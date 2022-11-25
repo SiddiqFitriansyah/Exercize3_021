@@ -68,6 +68,12 @@ namespace Exercize3_021
             else
                 Console.WriteLine("\nThe First Record in the List is:\n\n" + LAST.next.rollNumber + "  " + LAST.next.name);
         }
-        
+        public void InsertInBeginning()
+        {
+            Node temp = LAST.next;
+            temp.next = LAST;
+            LAST.next = temp;
+        }
+       
     }
 }
