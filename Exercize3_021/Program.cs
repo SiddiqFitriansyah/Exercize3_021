@@ -171,6 +171,40 @@ namespace Exercize3_021
             p.next = LAST.next;
             LAST = p;
         }
+        public void DeleteNode(int x)
+        {
+            //If the List is Empty
+            if (LAST == null)
+                return;
+            //If want delete only node
+            if (LAST.next == LAST && LAST.rollNumber ==x)
+            {
+                LAST = null;
+                return;
+            }
+            //If want delete the first node
+            if (LAST.next.rollNumber == x)
+            {
+                LAST.next = LAST.next.next;
+                return;
+            }
+            //If want delete the node in between the list
+            Node p = LAST.next;
+            while (p.next != LAST.next)
+            {
+                if (p.next.rollNumber == x)
+                    break;
+                p = p.next;
+            }
+            if (p.next == LAST.next)
+                Console.WriteLine(x + " not found in the list.");
+            else
+            {
+                p.next = p.next.next;
+                if (LAST.rollNumber == x)
+                    LAST = p;
+            }
+        }
         public static void Main(string[] args)
         {
             int choice, data, x;
@@ -224,6 +258,20 @@ namespace Exercize3_021
                         Console.WriteLine("Enter the element after which to be inserted : ");
                         x = Convert.ToInt32(Console.ReadLine());
                         list.InsertAfter(data, x);
+                        break;
+                    case 6:
+                        list.DeleteFirstNode();
+                        break;
+                    case 7:
+                        list.DeleteLastNode();
+                        break;
+                    case 8:
+                        Console.WriteLine("Enter the element to be deleted : ");
+                        data = Convert.ToInt32(Console.ReadLine());
+                        list.DeleteNode(data);
+                        break;
+                    default:
+                        Console.WriteLine("Wrong choice");
                         break;
                 }
                 Console.WriteLine();
